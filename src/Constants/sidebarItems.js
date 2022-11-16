@@ -16,13 +16,13 @@ export const SidebarItems  = [
         id:2,
         name:`заказы`,
         link:`/orders`,
-        icon:<OrdersSvg/>
+        icon:<ProductsSvg/>
     },
     {
         id:3,
-        name:`товары`,
-        link:`/products`,
-        icon:<ProductsSvg/>
+        name:`курсы`,
+        link:`/courses`,
+        icon:<OrdersSvg/>
     },
     {
         id:4,

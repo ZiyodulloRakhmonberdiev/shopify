@@ -9,7 +9,7 @@ export const CheckoutTitle = styled.div`
 color: #00C48C;
 display: flex;
 align-self: center;
-font-size: 12px;
+font-size: 14px;
 font-weight: 500;
 line-height: 14.12px;
 .starter{

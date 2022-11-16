@@ -119,7 +119,8 @@ export const Table = styled.table`
 export const THead = styled.thead`
   width: 100%;
   tr {
-    background-color: #1b4643;
+    background-color:  rgb(0, 32, 53);
+   
     th {
       color: #fff;
       font-size: 13px;
@@ -141,7 +142,7 @@ export const TBody = styled.tbody`
     border-left: 1px solid black;
     transition-duration: 0.5s;
     &:hover {
-      background-color: #c4cece;
+       background-color: rgba(2, 46, 75, 0.452);
     }
   }
 `;
@@ -238,7 +239,7 @@ left: 25px;
 export const Button = styled.button`
 color: #fff;
 font-size: 14px;
-width: 100px;
+width: 120px;
 height: 35px;
 font-family:sans-serif;
 font-weight: 500;
@@ -250,6 +251,7 @@ outline: none;
 border: 0;
 cursor: pointer;
 margin: 15px;
+
 `;
 
 export const FileInput = styled.label`

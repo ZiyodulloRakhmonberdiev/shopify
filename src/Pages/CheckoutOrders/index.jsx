@@ -42,7 +42,6 @@ const CheckoutOrders = () => {
   //     }
   //     console.log(state.word);
   // }
-
   return (
     <>
       {
@@ -61,7 +60,7 @@ const CheckoutOrders = () => {
           onChange={(e) => setState({...state,word:e.target.value})}
             type={"search"} 
           placeholder={"Поиск по називанию товара"} />
-          <SearchButton onClick={() => searchHandler }>
+          <SearchButton>
             <SearchSvg />
           </SearchButton>
         </SearchWrapper>

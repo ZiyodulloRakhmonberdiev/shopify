@@ -58,14 +58,14 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             </LinkWrapper>
           )
         )}
-        {/* <CloseSidebar onClick={()=> {setIsOpen(!isOpen)}}>
+        <CloseSidebar onClick={()=> {setIsOpen(!isOpen)}}>
                    <ArrowIconBox isOpen={isOpen}>
                        <ArrowIconContainer isOpen={isOpen}>
                            <CircleArrowIcon/>
-                       </ArrowIconContainer>
-                       <ArrowText isOpen={isOpen} >Click here</ArrowText>
+                       </ArrowIconContainer> 
+                        <ArrowText isOpen={isOpen} >Click here</ArrowText>
                    </ArrowIconBox>
-               </CloseSidebar> */}
+               </CloseSidebar>
       </Container>
     </SidebarWrap>
   );

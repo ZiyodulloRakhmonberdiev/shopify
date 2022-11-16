@@ -10,7 +10,8 @@ export const SidebarWrap = styled.div`
     display: none;
   }
   margin: auto;
-  background-color: rgb(61, 99, 157);
+  /* background-color: rgb(61, 99, 157); */
+  background-color: rgb(0, 32, 53);
   border-top-right-radius: 30px;
 
   position: fixed;
@@ -98,12 +99,15 @@ export const CloseSidebar = styled.div`
   //background-color: lightgrey;
   /* border-radius: 0 100px 100px 0; */
   @media only screen and (max-width: 1260px) {
+    transition: all .5s ease;
     display: none;
+    
   }
 `;
 export const ArrowIconBox = styled.div`
-  height: 75px;
-  margin: auto;
+  height: 30px;
+  width: 90%;
+  margin-left: auto;
   padding: 20px;
   //background-color: #afafaf;
   display: flex;
@@ -114,19 +118,30 @@ export const ArrowIconBox = styled.div`
   cursor: pointer;
 `;
 export const ArrowIconContainer = styled.div`
-  width: 27px;
-  height: 27px;
+  width: 23px;
+  height: 23px;
   transform: rotate(${({ isOpen }) => (!isOpen ? "180deg" : "0")});
   transition-duration: 0.7s;
+  margin-left: ${({ isOpen }) => (isOpen ? "18px" : "0px")};
+  margin-right: ${({ isOpen }) => (isOpen ? "0" : "10px")};
+
+
+  svg{
+    width: 100%;
+    height: 100%;
+  }
+
 `;
 export const ArrowText = styled.div`
-  font-size: 20px;
-  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Gilroy", sans-serif;
+  color: #fff;
   width: 150px;
-  margin-right: 10px;
   width: ${({ isOpen }) => (isOpen ? "150px" : "0px")};
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   // opacity: ${({ isOpen }) => (!isOpen ? "0" : "1")};
   overflow: hidden;
   transition-duration: 0.7s;
+  margin-left: 15px;
 `;

@@ -8,6 +8,8 @@ top:0;
 display:flex;
 align-items:center;
 margin-left: auto;
+border-bottom: 1px solid rgba(241, 241, 241, 0.952);
+box-shadow: 2px 1px 20px rgba(241, 241, 241, 0.952);
 @media screen and (max-width: 600px) {
 height: 50px;
 }
@@ -94,7 +96,9 @@ align-items:center;
 justify-content:space-evenly;
 border-radius: 0px 0px 0px 30px;
 margin-left:auto;
-background-color:#3D639D;
+/* background-color:#3D639D; */
+background-color: rgb(0, 32, 53);
+
 @media screen and (max-width: 600px) {
 height: 50px;
 width: 120px;
@@ -117,7 +121,6 @@ right: 0;
 bottom: 0;
 z-index: 9;
 background: #f0f2f5;
-
 `;
 
 export const Button = styled.div`

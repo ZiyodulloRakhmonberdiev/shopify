@@ -1,6 +1,6 @@
 import React from "react";
 import {SidePageBackground, SidePageWrapper, SidePageTitle, CloseSidePage, Button,} from "./styles"
-import { ReactComponent as X } from "../../Assets/main/x.svg";
+import { ReactComponent as X } from "../../Assets/assets/main/x.svg";
 
 // Drawer
 export const SidePage = ({ isOpen, children, close, title, width }) => {
