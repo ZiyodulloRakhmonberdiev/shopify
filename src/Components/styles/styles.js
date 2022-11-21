@@ -9,8 +9,8 @@ export const SidePageBackground = styled.div`
   height: 100vh;
   width: 100vw;
   transition-duration: .3s;
-  backdrop-filter: blur(2px);
-  background-color: rgba(226,219,219,0.49);
+  backdrop-filter: blur(5px);
+  
   position: fixed;
   right: ${({isOpen, width}) => isOpen ? "0px" : `-${width ? width : "100vw"}`};
   bottom: 0;
@@ -29,7 +29,10 @@ export const SidePageWrapper = styled.div`
   overflow: auto;
   transition-duration: 0.5s;
   z-index:9999;
-  background-color: #f3f2f2;
+  /* background-color: #96acda; */
+  background-color: #f9fafc;
+
+
   @media only screen and (max-width: 900px) {
     width: ${({width}) => (width ? "100%" : "500px")};
   }
@@ -178,8 +181,11 @@ export const TD = styled.td`
 `;
 export const Status = styled.div`
 color: #fff;
-padding: 3px;
+padding: 4px 5px;
 border-radius: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
 `;
 
 export const TH = styled.th``;
@@ -231,7 +237,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 position:absolute;
-bottom: 40px;
+bottom: 30px;
 left: 25px;
 `;
 

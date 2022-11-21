@@ -21,7 +21,7 @@ const CheckoutOrders = () => {
   const posts = data;
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(8);
   const [state, setState] = useState({word:""})
   const navigate = useNavigate();
   const {pathname} = useLocation()

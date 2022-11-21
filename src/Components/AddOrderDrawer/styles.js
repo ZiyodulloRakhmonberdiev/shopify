@@ -25,7 +25,7 @@ export const Input = styled.input`
   width: 100%;
   height: 35px;
   outline: none;
-  border: 3px solid  #173e3c;
+  border: 3px solid  #222;
   border-radius: 8px;
   padding: 3px;
 
@@ -41,7 +41,7 @@ export const ContentWrapper = styled.div`
 export const InputWrap = styled.div`
   width: 45%;
   height: 35px;
-  background-color: #173e3c;
+  background-color: #222;
   position: relative;
   display: flex;
   align-items: center;
@@ -59,8 +59,8 @@ export const Select = styled.select`
   align-items: center;
   cursor: pointer;
   outline: none;
-  border: 3px solid  #173e3c;
- 
+  border: 3px solid  #222;
+ border-radius: 4px;
 `;
 export const Option = styled.option`
   font-size: 14px;

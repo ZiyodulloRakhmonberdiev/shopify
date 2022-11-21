@@ -1,6 +1,6 @@
 import React from "react";
 import { ErrorBoxWrapper } from "./styles";
-import errorImg from "../../Assets/main/warning.png";
+import errorImg from "../../Assets/assets/main/warning.png";
 function ErrorBox() {
   return (
     <ErrorBoxWrapper>

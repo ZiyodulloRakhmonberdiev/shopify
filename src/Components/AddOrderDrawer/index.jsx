@@ -62,7 +62,7 @@ const AddCoursePage = ({action}) => {
              onSubmit={addCourse}
              autoComplete="off" >
                 <TitleWrapper>
-                    Add Course
+                Добавить Заказ
                 </TitleWrapper>
                     <FormInner>
                     <FileInput>
@@ -71,21 +71,21 @@ const AddCoursePage = ({action}) => {
                         </div>
                         <Input type="file"  onChange={(e) => setState({...state,image:e.target.files[0]}) } />
                         <div className="txt">
-                            <h3>Drop Select Or File</h3>
+                            <h3>Перетащите выберите или файл</h3>
                         </div>
                     </FileInput>
                            <InputGroupWrapper>
                            <InputWrap>
-                                    <Labels>Name</Labels>
+                                    <Labels>Имя</Labels>
                                     <Input
                                         type="text"
-                                        placeholder={'Name'}
+                                        placeholder={'Имя'}
                                         onChange={(e) => setState( {...state,name:e.target.value})}
                                         required
                                     />
                                 </InputWrap>
                                <InputWrap>
-                               <Labels>Category</Labels>
+                               <Labels>Категория</Labels>
                                    <Select
                                     onChange={(e) => setState({...state, category:e.target.value})}
                                     required>
@@ -97,19 +97,19 @@ const AddCoursePage = ({action}) => {
                            </InputGroupWrapper>
                            <InputGroupWrapper>
                                 <InputWrap>
-                                    <Labels>Description</Labels>
+                                    <Labels>Описание</Labels>
                                     <Input
                                         type="text"
-                                        placeholder={'Description'}
+                                        placeholder={'Описание'}
                                         onChange={(e) => setState({...state,description:e.target.value})}
                                         required
                                     />
                                 </InputWrap>
                                 <InputWrap>
-                                    <Labels>Author</Labels>
+                                    <Labels>Автор</Labels>
                                     <Input
                                         type="text"
-                                        placeholder={'Author'}
+                                        placeholder={'Автор'}
                                         onChange={(e) => setState({...state,author:e.target.value})}
                                         required
                                     />
@@ -117,18 +117,18 @@ const AddCoursePage = ({action}) => {
                             </InputGroupWrapper>
                             <InputGroupWrapper>
                                  <InputWrap>
-                              <Labels>Price</Labels>
+                              <Labels>Цена</Labels>
                                     <Input
                                         type="number"
-                                        placeholder={'Price'}
+                                        placeholder={'Цена'}
                                         onChange={(e) => setState({...state,price:e.target.value})}
                                         required
                                     />
                                  </InputWrap>
                                  <InputWrap>
-                                 <Labels>Status</Labels>
+                                 <Labels>Статус</Labels>
                                  <Select 
-                                 name={'status'}
+                                 name={'Статус'}
                                  onChange={(e) => setState({...state,status:e.target.value})}
                                  required>
                                     <Option value={'active'}>active</Option>
@@ -138,8 +138,8 @@ const AddCoursePage = ({action}) => {
                             </InputGroupWrapper>
                     </FormInner>
                         <ActionButtonWrapper>
-                            <ActionBtn type={'button'} bg={'#bd0505'} text={'Cancel'} action={action} />
-                            <ActionBtn bg={'#173e3c'} text={'Send'} />
+                            <ActionBtn type={'button'} bg={'#bd0505'} text={'отменить'} action={action} />
+                            <ActionBtn bg={'#173e3c'} text={'Отправить'} />
                         </ActionButtonWrapper>
             </CourseInner>
         </CourseWrapper>

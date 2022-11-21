@@ -14,7 +14,7 @@ import {
     Option, CourseWrapper, CourseInner,
 } from "./styles";
 
-const EditCoursePage = ({ edit, editAction, openAction }) => {
+const EditOrderDrawer = ({ edit, editAction, openAction }) => {
     const {item} = edit
     const [state, setState] = useState(item)
     const {data} = useSelector((state) => state.course)
@@ -51,7 +51,7 @@ const EditCoursePage = ({ edit, editAction, openAction }) => {
                 onSubmit={updateCourse}
                 autoComplete="off" >
                 <TitleWrapper>
-                    Edit Course
+                Редактировать Заказ
                 </TitleWrapper>
                 <FormInner>
                     <FileInput>
@@ -60,22 +60,22 @@ const EditCoursePage = ({ edit, editAction, openAction }) => {
                         </div>
                         <Input type="file"  value={state.image} onChange={(e) => setState({ ...state, image: e.target.files[0] })} />
                         <div className="txt">
-                            <h3>Drop Select Or File</h3>
+                            <h3>Перетащите выберите или файл</h3>
                         </div>
                     </FileInput>
                     <InputGroupWrapper>
                        <InputWrap>
-                           <Labels>Name</Labels>
+                           <Labels>Имя</Labels>
                            <Input
                                type="text"
-                               placeholder={'Name'}
+                               placeholder={'Имя'}
                                value={state?.name}
                                onChange={(e) => setState({ ...state, name: e.target.value })}
                                required
                            />
                        </InputWrap>
                         <InputWrap>
-                            <Labels>Category</Labels>
+                            <Labels>Категория</Labels>
                             <Select
                                 onChange={(e) => setState({ ...state, category: e.target.value })}
                                 value={state?.category}
@@ -89,20 +89,20 @@ const EditCoursePage = ({ edit, editAction, openAction }) => {
                     </InputGroupWrapper>
                     <InputGroupWrapper>
                         <InputWrap>
-                            <Labels>Description</Labels>
+                            <Labels>Описание</Labels>
                             <Input
                                 type="text"
-                                placeholder={'Description'}
+                                placeholder={'Описание'}
                                 value={state?.description}
                                 onChange={(e) => setState({ ...state, description: e.target.value })}
                                 required
                             />
                         </InputWrap>
                         <InputWrap>
-                            <Labels>Author</Labels>
+                            <Labels>Автор</Labels>
                             <Input
                                 type="text"
-                                placeholder={'Author'}
+                                placeholder={'Автор'}
                                 value={state?.author}
                                 onChange={(e) => setState({ ...state, author: e.target.value })}
                                 required
@@ -111,19 +111,19 @@ const EditCoursePage = ({ edit, editAction, openAction }) => {
                     </InputGroupWrapper>
                     <InputGroupWrapper>
                             <InputWrap>
-                                <Labels>Price</Labels>
+                                <Labels>Цена</Labels>
                                 <Input
                                     type="number"
-                                    placeholder={'Price'}
+                                    placeholder={'Цена'}
                                     value={state?.price}
                                     onChange={(e) => setState({ ...state, price: e.target.value })}
                                     required
                                 />
                             </InputWrap>
                             <InputWrap>
-                                <Labels>Status</Labels>
+                                <Labels>Статус</Labels>
                                 <Select
-                                    name={'status'}
+                                    name={'Статус'}
                                     value={state?.status}
                                     onChange={(e) => setState({ ...state, status: e.target.value })}
                                     required>
@@ -138,13 +138,13 @@ const EditCoursePage = ({ edit, editAction, openAction }) => {
                     <ActionBtn
                         type={'button'}
                         bg={'#bd0505'}
-                        text={'Cancel'}
+                        text={'отменить'}
                         action={() => { editAction({ toggle: false }); openAction(false) }} />
-                    <ActionBtn bg={'#173e3c'} text={'Send'} />
+                    <ActionBtn bg={'#173e3c'} text={'Отправить'} />
                 </ActionButtonWrapper>
             </CourseInner>
         </CourseWrapper>
     );
 };
 
-export default EditCoursePage;
+export default EditOrderDrawer;

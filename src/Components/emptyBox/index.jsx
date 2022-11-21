@@ -1,7 +1,7 @@
 import React from "react";
 import { EmptyBoxWrapper } from "./styles";
-import emptyImg from "../../Assets/main/empty-box.svg";
-import emptyImgDark from "../../Assets/main/empty-box-dark.svg";
+import emptyImg from "../../Assets/assets/main/empty-box.svg";
+import emptyImgDark from "../../Assets/assets/main/empty-box-dark.svg";
 
 function EmptyBox({ item, dark,cart }) {
   return (
