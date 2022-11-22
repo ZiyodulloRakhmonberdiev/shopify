@@ -82,3 +82,7 @@ justify-content: center;
 cursor: pointer;
 
 `;
+export const Select = styled.select`
+`;
+export const Option = styled.option`
+`;

@@ -59,12 +59,12 @@ const OrderDisplay = () => {
           Заявки <ArrowRight /> <div>Оформитъ заказ</div>
         </div>{" "}
         <ArrowRight /> <div>
-          {data[id - 3]?.name} 
+          {data[id]?.name} 
           </div>
       </CheckoutTitle>
       <Wrapper>
         <ProductTitle>
-          {data[id - 3]?.category}
+          {data[id]?.category}
         </ProductTitle>
         <ProductCart>
           <CartSvg />
@@ -88,26 +88,26 @@ const OrderDisplay = () => {
               </CardToolSecond>
             </CardTools>
             <ImageWrapper>
-              <Image src={data[id - 3]?.image} />
+              <Image src={data[id]?.image} />
             </ImageWrapper>
           </ImageSide>
           <ContentSide>
             <OrderPrice>
               <PriceTitle>Цена телефона</PriceTitle>
               <Price>
-                {data[id - 3]?.price} сум
+                {data[id]?.price} сум
               </Price>
             </OrderPrice>
             <OverallPrice>
               <TotlePrice>
                 <PriceTitle>Обшая Цена (с нацекой)</PriceTitle>
                 <Price>
-                  {data[id - 3]?.price} сум
+                  {data[id]?.price} сум
                   </Price>
               </TotlePrice>
               <OrderAmountAndPriceWrapper>
                 <div className="one">
-                  {data[id - 3]?.price} сум
+                  {data[id]?.price} сум
                   </div>
                 <div className="second">X3</div>
               </OrderAmountAndPriceWrapper>

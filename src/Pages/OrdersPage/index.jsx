@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useLocation,Outlet } from "react-router-dom";
-import { getAllCourses, deleteCourse,} from "../../Redux/features/courses/coursesAction";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
+import {
+  getAllCourses,
+  deleteCourse,
+} from "../../Redux/features/courses/coursesAction";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { LinkHandler } from "../../hooks/Linker";
+import { Pagination, Select } from "antd";
+import { Input, Space } from "antd";
 import { ReactComponent as EditSvg } from "../../Assets/assets/main/edit.svg";
 import { ReactComponent as DeleteSvg } from "../../Assets/assets/main/udalit.svg";
 import { ReactComponent as SearchSvg } from "../../Assets/assets/main/Search.svg";
 import { ReactComponent as ArrowRight } from "../../Assets/assets/main/Arrow - Right.svg";
-import {ReactComponent as EyeSvg } from "../../Assets/assets/main/eye.svg"
+import { ReactComponent as EyeSvg } from "../../Assets/assets/main/eye.svg";
 import {
   Table,
   TableWrapper,
@@ -32,40 +37,65 @@ import {
   OrdersTitle,
   OrdersPageWrapper,
   Btn,
-  SearchButton,
   SearchWrapper,
-  Input,
   Header,
   Title,
 } from "./styles";
-import Pagination from "../../Components/Pagination";
 import SearchTable from "../../Components/SearchOrderTable";
 
 const Orders = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [edit, setEdit] = useState({ item: {}, toggle: false });
   const { data, loading, error } = useSelector((state) => state.course);
+  const [dataSource,setDataSource] = useState(data)
+  const { Search } = Input;
+ 
+  console.log(dataSource);
+
   const [refreshKey, setRefreshKey] = useState(0);
   const [query, setQuery] = useState("");
-  const posts = data;
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const howManyPages = Math.ceil(posts.length / postsPerPage);
-
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const [page, setPage] = useState(0);
+  const [postPerPage, setPostPerPage] = useState(10);
+  const indexOfLastPage = page + postPerPage;
+  const indexOfFirstPage = indexOfLastPage - postPerPage;
+  const currentPosts = data?.slice(indexOfFirstPage, indexOfLastPage);
 
   const deleteItem = (id) => {
     dispatch(deleteCourse(id));
   };
+
+  const onSearch = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const onShowSizeChange = (current, pageSize) => {
+    setPostPerPage(pageSize);
+  };
+
   useEffect(() => {
-    if (query.length === 0 || query.length > 2) dispatch(getAllCourses(query));
+      dispatch(getAllCourses(query));
   }, [query, refreshKey]);
+
+  // const onSorterChange = (selectedSorter) => {
+  //   const sortedDataSource = [...data];
+  //   if (selectedSorter === "name") {
+  //     sortedDataSource.sort((a, b) =>
+  //       a.name > b.name ? 1 : a.name === b.name ? 0 : -1
+  //     );
+  //   } else if (selectedSorter === "category") {
+  //     sortedDataSource.sort((a, b) =>
+  //       a.category > b.category ? 1 : a.category === b.category ? 0 : -1
+  //     );
+  //   } else if (selectedSorter === "price") {
+  //     sortedDataSource.sort((a, b) => a.price - b.price);
+  //   }
+  //   setDataSource(sortedDataSource);
+  // };
 
   return (
     <OrdersPageWrapper>
@@ -108,15 +138,22 @@ const Orders = () => {
             )}
           </SidePage>
           <SearchWrapper>
-            <Input
-              onChange={(e) => setQuery(e.target.value)}
-              type={"search"}
-              name={"searchItem"}
-              placeholder={"Поиск по називанию товара"}
+            <select  >
+              <option value={"name"}>name</option>
+              <option value={"category"}>category</option>
+              <option value={"price"}>price</option>
+            </select>
+            <Search
+              placeholder="Поиск по називанию товара"
+              allowClear
+              enterButton="Search"
+              size="large"
+              onChange={onSearch}
+              style={{
+                width: 304,
+                marginLeft: "auto",
+              }}
             />
-            <SearchButton>
-              <SearchSvg />
-            </SearchButton>
           </SearchWrapper>
           {query ? (
             <SearchTable data={data} />
@@ -179,7 +216,9 @@ const Orders = () => {
                       <TD>{moment(item.date).format("L")}</TD>
                       <TD>
                         <EditBtn
-                         onClick={() => { LinkHandler(navigate,`orders`,item.id)}}
+                          onClick={() => {
+                            LinkHandler(navigate, `orders`, item.id);
+                          }}
                         >
                           <EyeSvg />
                         </EditBtn>
@@ -199,8 +238,7 @@ const Orders = () => {
                           onClick={() => {
                             deleteItem(item.id);
                             setRefreshKey((oldKey) => oldKey + 1);
-                          }}
-                        >
+                          }}>
                           <DeleteSvg />
                         </DeleteBtn>
                       </TD>
@@ -215,7 +253,16 @@ const Orders = () => {
             <EmptyBox item="Courses" />
           )}
           {error && <ErrorBox />}
-          <Pagination pages={howManyPages} setCurrentPage={setCurrentPage} />
+
+          <Pagination
+            onChange={(value) => setPage(value)}
+            pageSize={postPerPage}
+            total={data.length}
+            current={page}
+            showSizeChanger
+            showQuickJumper
+            onShowSizeChange={onShowSizeChange}
+          />
         </>
       )}
     </OrdersPageWrapper>
