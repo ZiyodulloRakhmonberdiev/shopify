@@ -13,7 +13,7 @@ const navigate = useNavigate();
     <>
    {posts?.map((item)=>(
      <CardWrapper  
-     key={item.id}
+     key={item.id} 
      onClick={() => { LinkHandler(navigate,`checkout`,item.id)}}
     >
      <CardImageWrapper>

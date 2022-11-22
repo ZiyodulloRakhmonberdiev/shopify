@@ -15,93 +15,18 @@ export const TableWrapper = styled.div`
   }
 `;
 
-export const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-bottom: 20px;
-  td,
-  th {
-    padding: 10px;
-  }
-`;
-
-export const THead = styled.thead`
-  width: 100%;
-  tr {
-    background-color: lightgray;
-    th {
-      color: white;
-      padding: 20px 10px;
-      &:last-child {
-        border-top-right-radius: 10px;
-      }
-      &:first-child {
-        border-top-left-radius: 10px;
-      }
-    }
-  }
-`;
-export const TBody = styled.tbody`
-  width: 100%;
-  tr {
-    border-left: 1px solid black;
-    transition-duration: 0.5s;
-    &:hover {
-      background-color: lightgrey;
-    }
-  }
-`;
-
-
-export const TFoot = styled.tfoot`
-  width: 100%;
-  tr {
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-  }
-  font-weight: bold;
-`;
-
-export const TRow = styled.tr`
-  width: 100%;
-  background-color:#fff;
-  position: relative;
-  &:hover {
-    .cursor-order {
-      display: flex;
-    }
-  }
-`;
-
-export const TD = styled.td`
-  /* border-top: 1px solid black; */
-  //width: 20px;
-  border-bottom: 1px solid black;
-  padding: 15px;
-  text-align: center;
-`;
-
-export const TH = styled.th``;
-export const Button = styled.div`
-width: 50px;
-height: 30px;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-left: 20%;
-cursor: pointer;
-transition: 0.5s ease;
-svg{
-    height: 100%;
-    width: 100%;
-    stroke: #f30f30;
+export const Btn = styled.div`
+height: 20px;
+&:nth-child(1){
+    margin-left: 7px;
 }
-img{
-  height: 100%;
+&:nth-child(1){
+    margin-left: 7px;
 }
+svg path {
+    stroke: #fff !important;
+  }
 `;
-
 export const NotFound = styled.div`
 height: 100%;
 width: 100%;

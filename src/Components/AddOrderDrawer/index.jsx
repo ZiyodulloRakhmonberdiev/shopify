@@ -60,7 +60,8 @@ const AddCoursePage = ({action}) => {
         <CourseWrapper>
             <CourseInner
              onSubmit={addCourse}
-             autoComplete="off" >
+            //  autoComplete="off" 
+             >
                 <TitleWrapper>
                 Добавить Заказ
                 </TitleWrapper>

@@ -10,10 +10,8 @@
   box-sizing: border-box;
   font-family: "Gilory", sans-serif;
   scroll-behavior: smooth;
-
-
 }
-/* 
+
 #SvgjsPath1024,
 #SvgjsPath1030,
 #SvgjsPath1036,
@@ -28,4 +26,4 @@
 #SvgjsPath1090
  {
   fill: rgb(11, 7, 63) !important;
-} */
+}

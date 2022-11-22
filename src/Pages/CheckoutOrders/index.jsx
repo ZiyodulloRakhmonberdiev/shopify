@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { PageTitle } from "../../Components/styles/styles";
 import {
   CheckoutOrdersWrapper,
@@ -22,14 +22,14 @@ const CheckoutOrders = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(8);
-  const [state, setState] = useState({word:""})
+  const [state, setState] = useState({ word: "" });
   const navigate = useNavigate();
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
 
   if (loading && posts.length === 0) {
     return <h2>Loading...</h2>;
   }
-   
+
   //Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -44,45 +44,52 @@ const CheckoutOrders = () => {
   // }
   return (
     <>
-      {
-        pathname !== '/checkout' ?
-         <Outlet /> :
+      {pathname !== "/checkout" ? (
+        <Outlet />
+      )
+       : 
+       (
         <CheckoutOrdersWrapper>
-        <CheckoutTitle>
-          <div className="starter">
-            Заявки <ArrowRight />{" "}
-          </div>
-          Оформитъ заказ
-        </CheckoutTitle>
-        <PageTitle>Оформит заказ</PageTitle>
-        <SearchWrapper>
-          <Input 
-          onChange={(e) => setState({...state,word:e.target.value})}
-            type={"search"} 
-          placeholder={"Поиск по називанию товара"} />
-          <SearchButton>
-            <SearchSvg />
-          </SearchButton>
-        </SearchWrapper>
-        <ProductTitle>Все товары ({data.length})</ProductTitle>
-        <ProductWrapper >
-         {state.word !== "" ?
-         (
-           <>
-           <SearchCards pages={howManyPages} setCurrentPage={setCurrentPage}  state={state}/> 
-           </>
-         ):
-         (
-          <>
-          <CheckoutCard posts={currentPosts}/>
-          <Pagination pages={howManyPages} setCurrentPage={setCurrentPage} />
-          </>
-         )
-          }
-        </ProductWrapper>
-       </CheckoutOrdersWrapper>
-      }
-     
+          <CheckoutTitle>
+            <div className="starter">
+              Заявки <ArrowRight />{" "}
+            </div>
+            Оформитъ заказ
+          </CheckoutTitle>
+          <PageTitle>Оформит заказ</PageTitle>
+          <SearchWrapper>
+            <Input
+              onChange={(e) => setState({ ...state, word: e.target.value })}
+              type={"search"}
+              placeholder={"Поиск по називанию товара"}
+            />
+            <SearchButton>
+              <SearchSvg />
+            </SearchButton>
+          </SearchWrapper>
+          <ProductTitle>Все товары ({data.length})</ProductTitle>
+
+          <ProductWrapper>
+            {state.word !== "" ? (
+              <>
+                <SearchCards
+                  pages={howManyPages}
+                  setCurrentPage={setCurrentPage}
+                  state={state}
+                />
+              </>
+            ) : (
+              <>
+                <CheckoutCard posts={currentPosts} />
+                <Pagination
+                  pages={howManyPages}
+                  setCurrentPage={setCurrentPage}
+                />
+              </>
+            )}
+          </ProductWrapper>
+        </CheckoutOrdersWrapper>
+      )}
     </>
   );
 };

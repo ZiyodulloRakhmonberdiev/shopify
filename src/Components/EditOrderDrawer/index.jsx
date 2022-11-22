@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { editCourse, getAllCourses } from '../../Redux/features/courses/coursesAction';
+import { editCourse} from '../../Redux/features/courses/coursesAction';
 import { ActionBtn } from "../styles";
 import { ActionButtonWrapper, FileInput } from "../styles/styles";
 import UploadImage from "../../Assets/assets/main/upload-file.png"
@@ -14,12 +14,12 @@ import {
     Option, CourseWrapper, CourseInner,
 } from "./styles";
 
-const EditOrderDrawer = ({ edit, editAction, openAction }) => {
+const EditOrderDrawer = ({ edit, editAction, openAction,setRefreshKey,refreshKey}) => {
     const {item} = edit
     const [state, setState] = useState(item)
     const {data} = useSelector((state) => state.course)
     const dispatch = useDispatch()
-  
+
     const updateCourse = (e) => {
         e.preventDefault()
         const { image, name, category, description, author, status, price } = state;
@@ -42,9 +42,11 @@ const EditOrderDrawer = ({ edit, editAction, openAction }) => {
             console.log("something is Empty")
         } else {
             dispatch(editCourse(formData))
+            setRefreshKey(Math.floor(Math.random() * 100))
+
         }
     }
-
+   
     return (
         <CourseWrapper>
             <CourseInner
@@ -139,8 +141,8 @@ const EditOrderDrawer = ({ edit, editAction, openAction }) => {
                         type={'button'}
                         bg={'#bd0505'}
                         text={'отменить'}
-                        action={() => { editAction({ toggle: false }); openAction(false) }} />
-                    <ActionBtn bg={'#173e3c'} text={'Отправить'} />
+                        action={() => { editAction({ toggle: false }); openAction(false);}} />
+                    <ActionBtn bg={'#173e3c'} text={'Отправить'}/>
                 </ActionButtonWrapper>
             </CourseInner>
         </CourseWrapper>

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-width: 90%;
-margin: 20px auto;
+width: 100%;
 `;
 // Side Page styles
 export const SidePageBackground = styled.div`
@@ -23,14 +22,16 @@ export const SidePageWrapper = styled.div`
   height:100vh;
   position: fixed;
   bottom: 0;
-  right: ${({isOpen, width}) => isOpen ? "0px" : `-${width ? width : "500px"}`};
+  right: ${({isOpen, width}) => isOpen ? "0" : `-${width ? width : "500px"}`};
+  transition:0.5s ease !important;
+  right: ${({isOpen}) => (isOpen ? "0": "-800px")};
   bottom: 0;
-  padding: 60px 20px;
+  padding: 60px 20px; 
   overflow: auto;
   transition-duration: 0.5s;
   z-index:9999;
-  /* background-color: #96acda; */
-  background-color: #f9fafc;
+  background-color: #96acda;
+  /* background-color: #f9fafc; */
 
 
   @media only screen and (max-width: 900px) {

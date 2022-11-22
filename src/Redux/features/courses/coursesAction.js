@@ -3,9 +3,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../Constants/api';
 
 // get all course
-export const getAllCourses = createAsyncThunk( 'getAllCourses', async (_, thunkAPI) => {
+export const getAllCourses = createAsyncThunk( 'getAllCourses', async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}/courses`, {
+      const response = await axios.get(`${BASE_URL}/courses?q=${query}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -44,9 +44,9 @@ export const createCourse = createAsyncThunk(
 // get single Cascade-tools
 export const getSingleCourse = createAsyncThunk(
   'get-single-course',
-  async (id, thunkAPI) => {
+  async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}/courses/${id}`, {
+      const response = await axios.get(`${BASE_URL}/courses?q=${query}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',

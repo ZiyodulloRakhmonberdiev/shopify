@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { data } from "../../data";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getAllCourses,
+} from "../../Redux/features/courses/coursesAction";
 import {
   OrderDisplayWrapper,
   CheckoutTitle,
@@ -39,19 +42,32 @@ import { ReactComponent as CartSvg } from "../../Assets/assets/main/buy.svg";
 import OrderDisplayAction from "../OrdersDisplayActions";
 
 const OrderDisplay = () => {
+  const { data, loading, error } = useSelector((state) => state.course);
   const { id } = useParams();
+  const dispatch = useDispatch()
+
+  console.log(id)
+  // useEffect(() => {
+  //   dispatch(getAllCourses());
+
+  // }, []);
+ 
   return (
     <OrderDisplayWrapper>
       <CheckoutTitle>
         <div className="starter">
           Заявки <ArrowRight /> <div>Оформитъ заказ</div>
         </div>{" "}
-        <ArrowRight /> <div>{data[id - 1].title}</div>
+        <ArrowRight /> <div>
+          {data[id - 3]?.name} 
+          </div>
       </CheckoutTitle>
       <Wrapper>
-      <ProductTitle>{data[id - 1].title}</ProductTitle>
-      <ProductCart>
-          <CartSvg/>
+        <ProductTitle>
+          {data[id - 3]?.category}
+        </ProductTitle>
+        <ProductCart>
+          <CartSvg />
         </ProductCart>
       </Wrapper>
       <Container>
@@ -72,21 +88,27 @@ const OrderDisplay = () => {
               </CardToolSecond>
             </CardTools>
             <ImageWrapper>
-              <Image src={data[id - 1].image} />
+              <Image src={data[id - 3]?.image} />
             </ImageWrapper>
           </ImageSide>
           <ContentSide>
             <OrderPrice>
               <PriceTitle>Цена телефона</PriceTitle>
-              <Price>{data[id - 1].price} сум</Price>
+              <Price>
+                {data[id - 3]?.price} сум
+              </Price>
             </OrderPrice>
             <OverallPrice>
               <TotlePrice>
                 <PriceTitle>Обшая Цена (с нацекой)</PriceTitle>
-                <Price>{data[id - 1].price} сум</Price>
+                <Price>
+                  {data[id - 3]?.price} сум
+                  </Price>
               </TotlePrice>
               <OrderAmountAndPriceWrapper>
-                <div className="one">{data[id - 1].price} сум</div>
+                <div className="one">
+                  {data[id - 3]?.price} сум
+                  </div>
                 <div className="second">X3</div>
               </OrderAmountAndPriceWrapper>
             </OverallPrice>
