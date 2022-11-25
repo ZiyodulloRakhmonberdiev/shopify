@@ -10,9 +10,10 @@ export const SidebarWrap = styled.div`
     display: none;
   }
   margin: auto;
-  /* background-color: rgb(61, 99, 157); */
   background-color: rgb(0, 32, 53);
+
   border-top-right-radius: 30px;
+
 
   position: fixed;
   left: 0;

@@ -5,7 +5,7 @@ width:100vw;
 `;
 export const RouteWrapper = styled.div`
 height: calc(100vh - 100px);
-width: calc(100% - ${({isOpen}) => isOpen ? "320px" : "100px"});
+width: calc(100% - ${({isOpen}) => isOpen ? "320px" : "150px"});
 transition-duration: 0.5s;
 margin-left:auto;
 margin-right:32px;

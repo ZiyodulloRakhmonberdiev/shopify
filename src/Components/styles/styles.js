@@ -124,7 +124,6 @@ export const THead = styled.thead`
   width: 100%;
   tr {
     background-color:  rgb(0, 32, 53);
-   
     th {
       color: #fff;
       font-size: 13px;
@@ -146,12 +145,10 @@ export const TBody = styled.tbody`
     border-left: 1px solid black;
     transition-duration: 0.5s;
     &:hover {
-       background-color: rgba(2, 46, 75, 0.452);
+       background-color: lightblue;
     }
   }
 `;
-
-
 export const TFoot = styled.tfoot`
   width: 100%;
   tr {
@@ -201,7 +198,10 @@ justify-content: center;
 margin-left: 30%;
 cursor: pointer;
 transition-duration: 0.5s;
-
+svg path {
+      stroke: gray;
+    }
+   
 &:hover {
     svg path {
       stroke: #009000;
@@ -221,6 +221,9 @@ justify-content: center;
 margin-left: 30%;
 cursor: pointer;
 transition-duration: 0.5s;
+svg path {
+      stroke: gray;
+    }
 
 &:hover {
     svg path {

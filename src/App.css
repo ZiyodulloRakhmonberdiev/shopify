@@ -27,3 +27,15 @@
  {
   fill: rgb(11, 7, 63) !important;
 }
+.ant-btn{
+  background-color: rgb(0, 32, 53);
+}
+.ant-btn:hover{
+  background-color: rgb(0, 32, 53) !important;
+}
+
+.ant-input-affix-wrapper{
+  border:1px solid rgb(0, 32, 53)!important;
+
+
+}

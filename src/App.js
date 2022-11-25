@@ -8,6 +8,8 @@ import CheckoutOrders from "./Pages/CheckoutOrders";
 import OrderDisplay from "./Components/OrderCheckout/index";
 import Dashboard from "./Pages/Dashboard";
 import Orders from "./Pages/OrdersPage";
+import Courses from "./Pages/CoursesPage";
+import CourseCheckout from "./Components/CourseCheckout";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -23,9 +25,10 @@ function App() {
             <Route path={"/orders"} element={<Orders />}>
               <Route path=":id" element={<OrderDisplay />} />
             </Route>
+            <Route path="/courses" element={<Courses/>}>
+            <Route path=":id" element={<CourseCheckout/>} />
+            </Route>
             <Route path={"/checkout"} element={<CheckoutOrders />}/>
-              {/* <Route path=":id" element={<OrderDisplay />} /> */}
-            {/* </Route> */}
           </Routes>
         </Container>
       </RouteWrapper>

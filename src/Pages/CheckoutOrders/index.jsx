@@ -68,7 +68,6 @@ const CheckoutOrders = () => {
             </SearchButton>
           </SearchWrapper>
           <ProductTitle>Все товары ({data.length})</ProductTitle>
-
           <ProductWrapper>
             {state.word !== "" ? (
               <>
