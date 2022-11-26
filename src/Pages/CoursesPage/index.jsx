@@ -47,14 +47,13 @@ const Courses = () => {
   const [edit, setEdit] = useState({ item: {}, toggle: false });
   const { data, loading, error } = useSelector((state) => state.course);
   const [dataSource, setDataSource] = useState(data);
-  const { Search } = Input;
-
   const [refreshKey, setRefreshKey] = useState(0);
   const [query, setQuery] = useState("");
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { Search } = Input;
 
   const [page, setPage] = useState(0);
   const [postPerPage, setPostPerPage] = useState(10);
@@ -93,6 +92,7 @@ const Courses = () => {
   //   }
   //   setDataSource(sortedDataSource);
   // };
+
   return (
     <CoursePageWrapper>
       {pathname !== "/courses" ? (
@@ -101,15 +101,15 @@ const Courses = () => {
         <>
           <OrdersTitle>
             <div className="starter">
-              Заказы <ArrowRight />{" "}
+            курсы <ArrowRight />{" "}
             </div>
-            измениты заказ
+            измениты курсы
           </OrdersTitle>
           <Header>
-            <Title> измениты заказ</Title>
+            <Title> измениты курсы</Title>
             <ActionBtn
               bg={"rgb(0, 32, 53)"}
-              text={"добавить заказ"}
+              text={"добавить курс"}
               action={() => setIsOpen(true)}
             />
           </Header>
@@ -134,7 +134,7 @@ const Courses = () => {
             )}
           </SidePage>
           <SearchWrapper>
-            <select>
+            <select >
               <option value={"name"}>name</option>
               <option value={"category"}>category</option>
               <option value={"price"}>price</option>
@@ -142,7 +142,7 @@ const Courses = () => {
             <Search
               placeholder="Поиск по називанию товара"
               allowClear
-              enterButton="Search"
+              enterButton="Поиск"
               size="large"
               onChange={onSearch}
               style={{
@@ -265,5 +265,4 @@ const Courses = () => {
     </CoursePageWrapper>
   );
 };
-
 export default Courses;

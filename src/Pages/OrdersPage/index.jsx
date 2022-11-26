@@ -146,7 +146,7 @@ const Orders = () => {
             <Search
               placeholder="Поиск по називанию товара"
               allowClear
-              enterButton="Search"
+              enterButton="Поиск"
               size="large"
               onChange={onSearch}
               style={{
