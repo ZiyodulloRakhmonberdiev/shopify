@@ -3,16 +3,14 @@ import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import {
-  getAllCourses,
-  deleteCourse,
-} from "../../Redux/features/courses/coursesAction";
+  getAllOrders,
+  deleteOrder,
+} from "../../Redux/features/orders/ordersAction";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { LinkHandler } from "../../hooks/Linker";
-import { Pagination, Select } from "antd";
-import { Input, Space } from "antd";
+import { Pagination,Input,} from "antd";
 import { ReactComponent as EditSvg } from "../../Assets/assets/main/edit.svg";
 import { ReactComponent as DeleteSvg } from "../../Assets/assets/main/udalit.svg";
-import { ReactComponent as SearchSvg } from "../../Assets/assets/main/Search.svg";
 import { ReactComponent as ArrowRight } from "../../Assets/assets/main/Arrow - Right.svg";
 import { ReactComponent as EyeSvg } from "../../Assets/assets/main/eye.svg";
 import {
@@ -46,7 +44,7 @@ import SearchTable from "../../Components/SearchOrderTable";
 const Orders = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [edit, setEdit] = useState({ item: {}, toggle: false });
-  const { data, loading, error } = useSelector((state) => state.course);
+  const { data, loading, error } = useSelector((state) => state.order);
   const [dataSource,setDataSource] = useState(data)
   const { Search } = Input;
  
@@ -66,7 +64,7 @@ const Orders = () => {
   const currentPosts = data?.slice(indexOfFirstPage, indexOfLastPage);
 
   const deleteItem = (id) => {
-    dispatch(deleteCourse(id));
+    dispatch(deleteOrder(id));
   };
 
   const onSearch = (e) => {
@@ -78,7 +76,7 @@ const Orders = () => {
   };
 
   useEffect(() => {
-      dispatch(getAllCourses(query));
+      dispatch(getAllOrders(query));
   }, [query, refreshKey]);
 
   // const onSorterChange = (selectedSorter) => {

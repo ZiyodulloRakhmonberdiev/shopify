@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../Constants/api';
-
-// get all course
-export const getAllCourses = createAsyncThunk( 'getAllCourses', async (query, thunkAPI) => {
+import { END_POINT_ORDERS} from "../../../Constants/api"
+// get all order
+export const getAllOrders = createAsyncThunk( 'getAllOrders', async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}/courses?q=${query}`, {
+      const response = await axios.get(`${BASE_URL}/${END_POINT_ORDERS}?q=${query}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -20,12 +20,12 @@ export const getAllCourses = createAsyncThunk( 'getAllCourses', async (query, th
   }
 ); //not using
 
-// create course
-export const createCourse = createAsyncThunk(
-  'create-course',
+// create order
+export const createOrder = createAsyncThunk(
+  'create-order',
   async (formData, thunkAPI) => {
     try {
-      const response = await axios.post(`${BASE_URL}/courses`, formData, {
+      const response = await axios.post(`${BASE_URL}/${END_POINT_ORDERS}`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -35,18 +35,17 @@ export const createCourse = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Create Course Error!')
+      return thunkAPI.rejectWithValue('Create Order Error!')
     }
   }
 ); //200ok
 
-
-// get single Cascade-tools
-export const getSingleCourse = createAsyncThunk(
-  'get-single-course',
+// get single Order
+export const getSingleOrder = createAsyncThunk(
+  'get-single-order',
   async (query, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}/courses?q=${query}`, {
+      const response = await axios.get(`${BASE_URL}/${END_POINT_ORDERS}?q=${query}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -56,19 +55,18 @@ export const getSingleCourse = createAsyncThunk(
       return response.data;
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Get single Course error!')
+      return thunkAPI.rejectWithValue('Get single Order error!')
     }
   }
 ); //200ok
 
-
-// edit Cascade-tools
-export const editCourse = createAsyncThunk(
-  'edit-Course',
+// edit Order
+export const editOrder = createAsyncThunk(
+  'edit-order',
   async (formData, thunkAPI) => {
     console.log(formData);
     try {
-      const response = await axios.put(`${BASE_URL}/courses/${formData.id}`, formData, {
+      const response = await axios.put(`${BASE_URL}/${END_POINT_ORDERS}/${formData.id}`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -78,18 +76,17 @@ export const editCourse = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Edit Course!')
+      return thunkAPI.rejectWithValue('Edit Order!')
     }
   }
 ); //not using
 
-
-// delete Course
-export const deleteCourse = createAsyncThunk(
-  'delete-course',
+// delete Order
+export const deleteOrder = createAsyncThunk(
+  'delete-order',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`${BASE_URL}/courses/${id}`, {
+      const response = await axios.delete(`${BASE_URL}/${END_POINT_ORDERS}/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -99,18 +96,18 @@ export const deleteCourse = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Delete Course Error!')
+      return thunkAPI.rejectWithValue('Delete Order Error!')
     }
   }
 ); //200ok
 
 
-// edit part of Course
-export const editPartOfCourse = createAsyncThunk(
-  'edit-part-of-course',
+// edit part of Order
+export const editPartOfOrder = createAsyncThunk(
+  'edit-part-of-order',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.put(`${BASE_URL}/courses/${id}`, {
+      const response = await axios.put(`${BASE_URL}/${END_POINT_ORDERS}/${id}`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +117,7 @@ export const editPartOfCourse = createAsyncThunk(
       return response.data; 
     
     } catch (err) {
-      return thunkAPI.rejectWithValue('Edit part of Course Error!')
+      return thunkAPI.rejectWithValue('Edit part of Order Error!')
     }
   }
 ); //not using
