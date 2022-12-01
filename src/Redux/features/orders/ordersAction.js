@@ -2,6 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../Constants/api';
 import { END_POINT_ORDERS} from "../../../Constants/api"
+const token = localStorage.getItem("token");
+
 // get all order
 export const getAllOrders = createAsyncThunk( 'getAllOrders', async (query, thunkAPI) => {
     try {
@@ -10,6 +12,7 @@ export const getAllOrders = createAsyncThunk( 'getAllOrders', async (query, thun
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
       })
       return response.data; 
@@ -30,6 +33,7 @@ export const createOrder = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
         }
       })
       return response.data; 
@@ -50,6 +54,7 @@ export const getSingleOrder = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
         }
       })
       return response.data;
@@ -71,6 +76,7 @@ export const editOrder = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
         }
       })
       return response.data; 
@@ -91,6 +97,7 @@ export const deleteOrder = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
         }
       })
       return response.data; 
@@ -112,6 +119,7 @@ export const editPartOfOrder = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization: `Bearer ${token}`,
         }
       })
       return response.data; 

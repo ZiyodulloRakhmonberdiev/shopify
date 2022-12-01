@@ -10,13 +10,13 @@ import Dashboard from "./Pages/Dashboard";
 import Orders from "./Pages/OrdersPage";
 import Courses from "./Pages/CoursesPage";
 import CourseCheckout from "./Components/CourseCheckout";
-
+import Login from "./Pages/LoginPage/index"
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <MainPageWrapper>
-      <Navbar />
+      <Navbar/>
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       <RouteWrapper isOpen={isSidebarOpen}>
         <Container>
@@ -29,6 +29,7 @@ function App() {
             <Route path=":id" element={<CourseCheckout/>} />
             </Route>
             <Route path={"/checkout"} element={<CheckoutOrders />}/>
+            <Route path ={'/login'} element={<Login/>}/>
           </Routes>
         </Container>
       </RouteWrapper>
