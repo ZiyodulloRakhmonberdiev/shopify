@@ -6,7 +6,7 @@ import { BASE_URL } from '../../../Constants/api';
 export const getAllCourses = createAsyncThunk( 'getAllCourses', async (query, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/courses?q=${query}`, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -26,7 +26,7 @@ export const createCourse = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const response = await axios.post(`${BASE_URL}/courses`, formData, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -47,7 +47,7 @@ export const getSingleCourse = createAsyncThunk(
   async (query, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/courses?q=${query}`, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

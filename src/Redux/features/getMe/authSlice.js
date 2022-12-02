@@ -7,41 +7,44 @@ const initialState = {
   success: false,
   loading: false,
   error: false,
-  data:[],
+  data:null,
 
   authSuccess: false,
   authLoading: false,
   authError: false,
-  authdata:[],
+  authdata:null
 
-  
 };
 
+
 const authSlice = createSlice({
+
   name: 'auth',
   initialState,
   reducers: {},
   extraReducers: {
-    // get all auth
+    // post auth
     [authorization.fulfilled.type]: (state, action) => {
-      state.loading = false;
-      state.error = false;
+      state.authLoading = false;
+      state.authError = false;
+      state.authSuccess = true;
       state.data = action.payload;
-      state.success = true; 
-      const navigate = useNavigate();
       const token =  action.payload;
       localStorage.setItem("token", token)
-      navigate("/");
+     
+// const navigate = useNavigate();
+ // navigate("/");
+      state.deleteSuccess = false;
+      console.log('posted successfully !');
     },
-   
     [authorization.pending.type]: (state) => {
-      state.loading = true;
+      state.authLoading = true;
     },
-    [authorization.rejected.type]: (state) => {
-      state.loading = false;
-      state.error = true;
+    [authorization.rejected.type]: (state, action) => {
+      state.authLoading = false;
+      state.authError = true;
+      action.payload === 409 ? console.log('Каскадные инструменты с таким названием уже существуют!') : console.log('Something went wrong Error!');
     },
- 
   }
 });
 

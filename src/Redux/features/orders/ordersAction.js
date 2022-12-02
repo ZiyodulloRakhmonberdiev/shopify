@@ -8,7 +8,7 @@ const token = localStorage.getItem("token");
 export const getAllOrders = createAsyncThunk( 'getAllOrders', async (query, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/${END_POINT_ORDERS}?q=${query}`, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -29,7 +29,7 @@ export const createOrder = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const response = await axios.post(`${BASE_URL}/${END_POINT_ORDERS}`, formData, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -50,7 +50,7 @@ export const getSingleOrder = createAsyncThunk(
   async (query, thunkAPI) => {
     try {
       const response = await axios.get(`${BASE_URL}/${END_POINT_ORDERS}?q=${query}`, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -72,7 +72,7 @@ export const editOrder = createAsyncThunk(
     console.log(formData);
     try {
       const response = await axios.put(`${BASE_URL}/${END_POINT_ORDERS}/${formData.id}`, formData, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

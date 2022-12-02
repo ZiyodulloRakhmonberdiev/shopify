@@ -8,9 +8,10 @@ export const authorization = createAsyncThunk(
     async (formData, thunkAPI) => {
       try {
         const response = await axios.post(`${BASE_URL}/auth`, formData, {
-          withCredentials: true,
+          withCredentials: false,
           headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
           }
         })
         if (response?.status === 401) {

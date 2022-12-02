@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../Constants/api";
+import axios from "axios";
 import {
   Button,
   ButtonWrapper,
@@ -15,7 +17,7 @@ import {
 import { authorization } from "../../Redux/features/getMe/authAction";
 
 const Login = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const submitLogin = (e) => {
     e.preventDefault();
@@ -23,16 +25,31 @@ const Login = () => {
       email: { value: email },
       password: { value: password },
     } = e.target;
-    console.log(email,password);
-
-    dispatch(
-      authorization({
-        formData: {
-          email,
-          password,
-        },
+    console.log(email, password);
+    const data = {
+      email: email,
+      password: password,
+    };
+    axios
+      .post(`${BASE_URL}/auth`, data)
+      .then((res) => {
+        console.log(res.data);
+        const token = res.data;
+        localStorage.setItem("token", token);
+        navigate(`/`);
       })
-    );
+      .catch((err) => {
+        console.log(err);
+      });
+    // dispatch(
+    //   authorization({
+    //     data: {
+    //       email,
+    //       password,
+    //     },
+    //   })
+
+    // );
   };
   return (
     <LoginPageWrapper onSubmit={submitLogin} autoComplete="on">
@@ -41,19 +58,11 @@ const Login = () => {
           <Title>Enter the CRM system</Title>
           <InputWrap>
             <Labels>Email</Labels>
-            <Input 
-             name={"email"}
-             type="email"
-             placeholder={'email'}
-             />
+            <Input name={"email"} type="email" placeholder={"email"} />
           </InputWrap>
           <InputWrap>
             <Labels>Password</Labels>
-            <Input
-            name={"password"}
-            type="password"
-            placeholder={'password'}
-             />
+            <Input name={"password"} type="password" placeholder={"password"} />
           </InputWrap>
           <ButtonWrapper>
             <Button>Enter</Button>

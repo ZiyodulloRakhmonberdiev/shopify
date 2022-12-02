@@ -184,7 +184,7 @@ const Courses = () => {
                   </TRow>
                 </THead>
                 <TBody>
-                  {currentPosts?.map((item, index) => (
+                  {/* {currentPosts?.map((item, index) => (
                     <TRow key={item.id}>
                       <TD>{index + 1}</TD>
                       <TD>
@@ -240,7 +240,7 @@ const Courses = () => {
                         </DeleteBtn>
                       </TD>
                     </TRow>
-                  ))}
+                  ))} */}
                 </TBody>
               </Table>
             </TableWrapper>
