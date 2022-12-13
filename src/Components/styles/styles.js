@@ -114,6 +114,7 @@ export const Table = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 20px;
+ 
   td,
   th {
     padding: 10px;
@@ -175,7 +176,8 @@ export const TD = styled.td`
   border-bottom: 1px solid black;
   padding: 15px;
   text-align: center;
-  
+  word-break: break-all !important;
+  width: fit-content;
 `;
 export const Status = styled.div`
 color: #fff;

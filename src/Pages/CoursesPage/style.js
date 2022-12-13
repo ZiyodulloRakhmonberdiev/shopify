@@ -1,7 +1,6 @@
 import styled from "styled-components";
 export const CoursePageWrapper = styled.div`
 width: 100%;
-width: 100%;
 `;
 export const Header = styled.div`
 width: 101%;

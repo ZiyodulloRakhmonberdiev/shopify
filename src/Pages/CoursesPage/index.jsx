@@ -54,6 +54,7 @@ const Courses = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { Search } = Input;
+  console.log(data);
 
   const [page, setPage] = useState(0);
   const [postPerPage, setPostPerPage] = useState(10);
@@ -162,8 +163,9 @@ const Courses = () => {
                     <TH>Фото</TH>
                     <TH>Имя</TH>
                     <TH>Категория</TH>
-                    <TH>Описание</TH>
+                    <TH>Теги</TH>
                     <TH>Автор</TH>
+                    <TH>Цена</TH>
                     <TH>Статус</TH>
                     <TH>Даты</TH>
                     <TH>
@@ -184,19 +186,21 @@ const Courses = () => {
                   </TRow>
                 </THead>
                 <TBody>
-                  {/* {currentPosts?.map((item, index) => (
+                  {currentPosts?.map((item, index) => (
                     <TRow key={item.id}>
                       <TD>{index + 1}</TD>
                       <TD>
                         <img
                           alt={"img"}
-                          src={`http://localhost:3005/courses/${item.image}`}
+                          src={`http://localhost:3005/courses/${item?.image}`}
                         />
                       </TD>
-                      <TD>{item.name}</TD>
-                      <TD>{item.category}</TD>
+                      <TD>{item.title}</TD>
+                      <TD>{item.category.name}</TD>
+                      {/* <TD>ai</TD> */}
                       <TD>{item.description}</TD>
-                      <TD>{item.author}</TD>
+                      <TD>{item.trainer}</TD>
+                      <TD>{item.fee}</TD>
                       <TD>
                         <Status
                           style={
@@ -240,7 +244,7 @@ const Courses = () => {
                         </DeleteBtn>
                       </TD>
                     </TRow>
-                  ))} */}
+                  ))}
                 </TBody>
               </Table>
             </TableWrapper>

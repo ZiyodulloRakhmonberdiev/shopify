@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { BASE_URL } from '../../../Constants/api';
+const  token = localStorage.getItem("token")
 
 // get all course
 export const getAllCourses = createAsyncThunk( 'getAllCourses', async (query, thunkAPI) => {
@@ -10,6 +11,7 @@ export const getAllCourses = createAsyncThunk( 'getAllCourses', async (query, th
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          Authorization:`Bearer ${token}`
         },
       })
       return response.data; 
