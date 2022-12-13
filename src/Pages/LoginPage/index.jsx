@@ -33,7 +33,6 @@ const Login = () => {
     axios
       .post(`${BASE_URL}/auth`, data)
       .then((res) => {
-        console.log(res.data);
         const token = res.data;
         localStorage.setItem("token", token);
         navigate(`/`);
