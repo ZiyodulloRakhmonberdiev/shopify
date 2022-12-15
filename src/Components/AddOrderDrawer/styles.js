@@ -69,6 +69,7 @@ export const Option = styled.option`
 `;
 
 export const TitleWrapper = styled.h2`
+color: #222;
 position: absolute;
 top: 40px;
 left: 22px;

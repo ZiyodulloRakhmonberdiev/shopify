@@ -45,11 +45,7 @@ const Orders = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [edit, setEdit] = useState({ item: {}, toggle: false });
   const { data, loading, error } = useSelector((state) => state.order);
-  const [dataSource,setDataSource] = useState(data)
   const { Search } = Input;
- 
-  console.log(dataSource);
-
   const [refreshKey, setRefreshKey] = useState(0);
   const [query, setQuery] = useState("");
   const { width } = useWindowDimensions();
@@ -136,7 +132,7 @@ const Orders = () => {
             )}
           </SidePage>
           <SearchWrapper>
-            <select  >
+            <select>
               <option value={"name"}>name</option>
               <option value={"category"}>category</option>
               <option value={"price"}>price</option>
@@ -164,8 +160,8 @@ const Orders = () => {
                     <TH>Фото</TH>
                     <TH>Имя</TH>
                     <TH>Категория</TH>
-                    <TH>Описание</TH>
-                    <TH>Автор</TH>
+                    <TH>Категория</TH>
+                    <TH>оплата</TH>
                     <TH>Статус</TH>
                     <TH>Даты</TH>
                     <TH>
@@ -192,13 +188,13 @@ const Orders = () => {
                       <TD>
                         <img
                           alt={"img"}
-                          src={`http://localhost:3005/courses/${item.image}`}
+                          src={`http://localhost:3005/courses/${item?.image}`}
                         />
                       </TD>
-                      <TD>{item.name}</TD>
-                      <TD>{item.category}</TD>
-                      <TD>{item.description}</TD>
-                      <TD>{item.author}</TD>
+                      <TD>{item.title}</TD>
+                      <TD>{item.category.name}</TD>
+                      <TD>{item.contact}</TD>
+                      <TD>{item.payment}</TD>
                       <TD>
                         <Status
                           style={

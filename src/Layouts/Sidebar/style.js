@@ -11,6 +11,7 @@ export const SidebarWrap = styled.div`
   }
   margin: auto;
   background-color: rgb(0, 32, 53);
+  
 
   border-top-right-radius: 30px;
 

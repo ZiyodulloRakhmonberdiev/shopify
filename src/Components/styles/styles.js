@@ -8,12 +8,12 @@ export const SidePageBackground = styled.div`
   height: 100vh;
   width: 100vw;
   transition-duration: .3s;
-  backdrop-filter: blur(5px);
-  
+  backdrop-filter: blur(5px) !important;
+  background-color: rgba(207, 204, 204, 0.63);
   position: fixed;
   right: ${({isOpen, width}) => isOpen ? "0px" : `-${width ? width : "100vw"}`};
   bottom: 0;
-    z-index:9999;
+  z-index:9999;
 
 `;
 
@@ -30,8 +30,11 @@ export const SidePageWrapper = styled.div`
   overflow: auto;
   transition-duration: 0.5s;
   z-index:9999;
-  background-color: #96acda;
   /* background-color: #f9fafc; */
+  /* background-color: rgb(0, 32, 53); */
+  background-color: rgb(255, 255, 255);
+
+
 
 
   @media only screen and (max-width: 900px) {
@@ -267,6 +270,7 @@ margin: 15px;
 `;
 
 export const FileInput = styled.label`
+
   width: 60%;
   margin: 15px 0;
   margin-top: 50px;
@@ -288,6 +292,7 @@ export const FileInput = styled.label`
      padding:10px;
      line-height:23px;
      h3{
+      color: #222 !important;
        font-size:17px;
        color:black;
        font-family:'Poppins',sans-serif;

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { createCourse } from '../../Redux/features/courses/coursesAction';
+import {getAllCategories,createCategory} from "../../Redux/features/category/categoryAction"
 import {
     FormInner,
     Input, InputGroupWrapper,
@@ -15,7 +16,9 @@ import {ActionButtonWrapper,FileInput} from "../styles/styles";
 import UploadImage from "../../Assets/assets/main/upload-file.png"
 
 const AddCoursePage = ({action}) => {
-    const dispatch = useDispatch()
+  const {data, loading,error} = useSelector((state) => state.category)  
+  console.log(data)
+  const dispatch = useDispatch()
   const [state,setState ] = useState({
         image:'',
         name:'',
@@ -90,9 +93,9 @@ const AddCoursePage = ({action}) => {
                                    <Select
                                     onChange={(e) => setState({...state, category:e.target.value})}
                                     required>
-                                    <option value={'Frontend Development'}>Frontend Development</option>
-                                    <option value={'Android Development'}>Android Development</option>
-                                    <option  value={'IOS Development'}>IOS Development</option>
+                                    {data.map((item)=>(
+                                        <option key={item.id} value={`${item.name}`}> {item.name}</option>
+                                    ))}
                                    </Select>
                                </InputWrap>
                            </InputGroupWrapper>
