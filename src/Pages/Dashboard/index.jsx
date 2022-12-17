@@ -7,7 +7,6 @@ const Dashboard = () => {
   return (
     <DashboarWrapper>
       <SalesView/>
-      <ProductSalesChart/>
     </DashboarWrapper>
   )
 }

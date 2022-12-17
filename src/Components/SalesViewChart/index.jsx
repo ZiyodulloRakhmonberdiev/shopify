@@ -3,7 +3,7 @@ import ApexCharts from 'apexcharts'
 import ReactApexChart from "react-apexcharts"
 import { SaleViewWrapper } from './styles'
 const SalesView = () => {
-  const [state,setState] = useState({
+  const [state, setState] = useState({
           
     series: [{
       name: 'Inflation',

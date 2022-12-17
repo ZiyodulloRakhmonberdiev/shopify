@@ -26,6 +26,7 @@ const SearchTable = (data) => {
   const [edit, setEdit] = useState(null);
   const [popUp, setPopUp] = useState({ cancel: false });
   const dispatch = useDispatch()
+  console.log(data);
 
   return (
     <Container>
@@ -48,14 +49,14 @@ const SearchTable = (data) => {
           <Table>
             <THead>
               <TRow>
-                <TH>#</TH>
-                <TH>Фото</TH>
-                <TH>Имя</TH>
-                <TH>Категория</TH>
-                <TH>Описание</TH>
-                <TH>Автор</TH>
-                <TH>Статус</TH>
-                <TH>Даты</TH>
+                  <TH>#</TH>
+                    <TH>Фото</TH>
+                    <TH>Имя</TH>
+                    <TH>Категория</TH>
+                    <TH>Контакт</TH>
+                    <TH>Оплата</TH>
+                    <TH>Статус</TH>
+                    <TH>Даты</TH>
                 <TH>
                   <Btn className="edit-svg">
                     <EditSvg />
@@ -78,10 +79,10 @@ const SearchTable = (data) => {
                       src={`http://localhost:3005/courses/${item.image}`}
                     />
                   </TD>
-                  <TD>{item.name}</TD>
-                  <TD>{item.category}</TD>
-                  <TD>{item.description}</TD>
-                  <TD>{item.author}</TD>
+                  <TD>{item.title}</TD>
+                  <TD>{item.category.name}</TD>
+                  <TD>{item.contact}</TD>
+                  <TD>{item.payment}</TD>
                   <TD>
                     <Status
                       style={

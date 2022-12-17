@@ -93,7 +93,7 @@ export const deleteOrder = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`${BASE_URL}/${END_POINT_ORDERS}/${id}`, {
-        withCredentials: true,
+        withCredentials: false,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

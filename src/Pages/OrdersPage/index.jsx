@@ -5,6 +5,7 @@ import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import {
   getAllOrders,
   deleteOrder,
+  editOrder
 } from "../../Redux/features/orders/ordersAction";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { LinkHandler } from "../../hooks/Linker";
@@ -157,11 +158,10 @@ const Orders = () => {
                 <THead>
                   <TRow>
                     <TH>#</TH>
-                    <TH>Фото</TH>
                     <TH>Имя</TH>
                     <TH>Категория</TH>
-                    <TH>Категория</TH>
-                    <TH>оплата</TH>
+                    <TH>Контакт</TH>
+                    <TH>Оплата</TH>
                     <TH>Статус</TH>
                     <TH>Даты</TH>
                     <TH>
@@ -185,12 +185,6 @@ const Orders = () => {
                   {currentPosts?.map((item, index) => (
                     <TRow key={item.id}>
                       <TD>{index + 1}</TD>
-                      <TD>
-                        <img
-                          alt={"img"}
-                          src={`http://localhost:3005/courses/${item?.image}`}
-                        />
-                      </TD>
                       <TD>{item.title}</TD>
                       <TD>{item.category.name}</TD>
                       <TD>{item.contact}</TD>
@@ -198,9 +192,9 @@ const Orders = () => {
                       <TD>
                         <Status
                           style={
-                            item.status.toLowerCase().trim() === "active"
+                            item.status.toLowerCase().trim() === "completed"
                               ? { backgroundColor: "#6cb680" }
-                              : { backgroundColor: "#ff2020" }
+                              : { backgroundColor: "#ff2020" } 
                           }
                           active={item.status}
                         >
