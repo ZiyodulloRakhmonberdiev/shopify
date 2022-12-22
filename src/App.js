@@ -13,7 +13,6 @@ import CourseCheckout from "./Components/CourseCheckout";
 import Login from "./Pages/LoginPage/index";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
   return (
     <MainPageWrapper>
       <Navbar />
